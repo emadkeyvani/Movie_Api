@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.keyvani.MoviesAdapter
+import com.keyvani.movieapi.adapter.MoviesAdapter
 import com.keyvani.movieapi.databinding.ActivityMainBinding
 import com.keyvani.movieapi.model.ResponseMoviesList
 import com.keyvani.movieapi.server.ApiClient
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ResponseMoviesList>, response: Response<ResponseMoviesList>) {
                     pbMovieLoader.visibility = View.GONE
                     if (response.isSuccessful) {
+                        Log.d("MainActivity",response.code().toString())
                         response.body()?.let { itBody ->
                             itBody.data?.let { itData ->
                                 if (itData.isNotEmpty()) {
@@ -47,6 +48,8 @@ class MainActivity : AppCompatActivity() {
 
                         }
 
+                    }else{
+                        Log.d("MainActivity",response.code().toString())
                     }
                 }
 

@@ -1,4 +1,4 @@
-package com.keyvani
+package com.keyvani.movieapi.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

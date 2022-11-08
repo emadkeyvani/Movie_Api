@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 
 interface ApiServices {
-    @GET("movie")
+    @GET("movies")
     fun moviesList(@Query("page") page:Int): Call<ResponseMoviesList>
 
 
